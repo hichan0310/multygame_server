@@ -64,16 +64,15 @@ def udp_listen(manager: client_manager):
 
 c_manager = client_manager()
 
+
 def status_send():
     while True:
         c_manager.status_send()
         clock.tick(MPS)
 
 
-
 threading.Thread(target=udp_listen, args=(c_manager,)).start()
 threading.Thread(target=status_send).start()
 
 while True:
-    command=input().split()
-
+    command = input().split()
